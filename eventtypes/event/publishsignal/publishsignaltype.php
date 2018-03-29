@@ -26,7 +26,7 @@ class PublishSignalType extends eZWorkflowEventType
     {
         $parameters = $process->attribute('parameter_list');
         $container = ezpKernel::instance()->getServiceContainer();
-        $logger = $container->get('monolog.logger.xrow_db_integrity');
+        $logger = $container->get('logger');
         $signalDispatcher = $container->get('ezpublish.signalslot.signal_dispatcher');
 
         $logger->debug('Emitting PublishVersionSignal for content ID: ' . $parameters['object_id'] . ", version " . $parameters['version']);
